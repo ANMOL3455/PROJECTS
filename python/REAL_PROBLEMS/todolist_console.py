@@ -1,4 +1,4 @@
-#incomplete [on-hoing project]
+#incomplete [on-going project]
 #-----------
 #TO DO LIST
 #-----------
@@ -8,7 +8,7 @@ def task_adder():
      no_of_task=int(input("\nenter the number of task you want add: "))
      if no_of_task <=0:
          print("if you dont wanna add task then why are you here: ")
-         task_adder()
+         option()
     except ValueError:
      print("enter the vaklid data")
      task_adder()
@@ -22,15 +22,62 @@ def task_adder():
      print(f" {no_of_task} task has been added sucessfully ")
      cont=int(input("do you wanna continue:"))
     else:
-     print(f" {no_of_task} tasks has been added sucessfully ")
+     print(f" {no_of_task} tasks has been added sucessfully ") 
+     at_end()
 
+#this left
 def task_remover():
-    print("hello")
+ print("\n WELCOME TO TASK REMOVER")
+ with open("tasks.txt","r") as f:
+    for line in f:
+       print(line.strip())
+       
+       
+       
+       
+       
 def task_viewer():
-    print("hello")
-    
+  print("\n WELCOME TO TASK VIEWER:")
+  print("\n:: These are the task you have to do ::")
+  with open("tasks.txt","r") as f:
+    i=0
+    for line in f:
+          if line.strip()!=None:
+           i+=1
+           print(f"{i} > {line.strip()}")
+       
+       
+       
+       
 def exit_message():
-    print("bye")
+    print("""
+          << 😊 THANK YOU FOR USING MY PROGRAM 😊 >>
+          \n
+                    << HAVE A NICE DAY >>
+          """)
+    
+    
+    
+    
+def option():
+   exiting=input("do you wanna exit (y/n): ")
+   if exiting=="y":
+    exit_message()
+   elif exiting=="n":
+    main()
+   else: 
+     print("enter the valid reason: ")
+     option()
+     
+def at_end():
+    again=input("do you want to do something else or exit (y/n) ?")
+    if again=="n":
+     exit_message()
+    elif again=="y":
+     main()  
+    else:
+     exit_message()
+    
 
 
 
